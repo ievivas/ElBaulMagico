@@ -1,0 +1,191 @@
+// VARIABLES
+$color-primario: rgb(97, 9, 77);
+$color-secundario: rgb(159, 106, 147);
+$color-terciario: rgb(195, 163, 189);
+$color-cuaternario: rgb(237, 227, 235);
+
+$font-principal: 'Pacific', serif;
+$font-secundario: 'Fjalla+One', sans-serif;
+$font-terciario: 'Montserrat', sans-serif;
+
+$ancho-maximo: 1280px;
+
+
+@mixin limpiar() {
+	margin: 0px;
+	padding: 0px;
+}
+
+@mixin sombra-contenedor() {
+	// h-shadow v-shadow blur spread color
+	-webkit-box-shadow: 10px 0px 15px -8px #191919, -10px 0px 15px -8px #191919;
+	-moz-box-shadow: 10px 0px 15px -8px #191919, -10px 0px 15px -8px #191919;
+	-ms-box-shadow: 10px 0px 15px -8px #191919, -10px 0px 15px -8px #191919;
+	box-shadow: 10px 0px 15px -8px #191919, -10px 0px 15px -8px #191919;
+}
+
+@mixin sombra($h-shadow, $v-shadow, $blur, $spread, $color) {
+	-webkit-box-shadow: $h-shadow $v-shadow $blur $color;
+	-moz-box-shadow: $h-shadow $v-shadow $blur $color;
+	-ms-box-shadow: $h-shadow $v-shadow $blur $color;
+	box-shadow: $h-shadow $v-shadow $blur $color;
+}
+
+* {
+	//Esto hace que si se se agragan bordes, no expandan 
+	//el elemento sino que se agraguen hacia adentro
+	box-sizing: border-box;
+}
+
+body {
+	// background con gradiente css3
+	// background: linear-gradient(90deg, rgb(235, 204, 245), white, rgb(235, 
+	background-image: url("../assets/fondo-body.png");
+	background-repeat: repeat;
+	background-attachment: fixed;
+}
+header {
+	@include limpiar();
+	@include sombra-contenedor();
+	max-width: $ancho-maximo;
+	width: 100%;
+	height: 125px;
+	background-color: $color-primario;
+	margin: auto;
+}
+nav {
+	@include limpiar();
+	@include sombra-contenedor();
+	max-width: $ancho-maximo;
+	width: 100%;
+	height: 50px;
+	background-color: $color-secundario;
+	margin: auto;
+	font-family: $font-secundario;
+	color: $color-cuaternario;
+	font-size: 18px;
+	font-weight: bold;
+	ul {
+		@include limpiar();
+		background-color: $color-secundario;
+		text-align: center;
+		display: inline;
+		list-style: none;
+		.boton {
+			margin-left: -5px;
+		}
+		li {
+			@include limpiar();
+			padding-top: 12px;
+			display: inline-block;
+			position: relative;
+			/* cursor: pointer; */
+			width: 16%;
+			height: 100%;
+			vertical-align: top;
+			-webkit-transition: all 0.3s;
+			-moz-transition: all 0.3s;
+			-ms-transition: all 0.3s;
+			transition: all 0.3s;
+			a {
+				text-decoration: none;
+				color: $color-cuaternario;
+				margin-right: 10px;
+				vertical-align: top;
+			}
+			i {
+				vertical-align: top;
+				transition: transform 0.3s;
+			}
+			&:hover {
+				background-color: $color-cuaternario;
+  				a, i {
+  					color: $color-secundario;
+  					text-decoration: none;
+  				} 
+  				i {
+  					transform: rotate(90deg);
+  				}
+  				ul {
+					visibility: visible;
+					display: block;
+					top: 50px;
+					li {
+						a {
+							text-decoration: none;
+							color: $color-cuaternario;
+						}
+					}
+				}
+			}
+			ul {
+				@include limpiar();
+				position: absolute;
+				width: 100%;
+				@include sombra(5px, 5px, 20px, 0px, black);
+				display: none;
+				visibility: hidden;
+				z-index: 1;
+				transition-property: all;
+    			transition-duration: 2s;
+				/* -webkit-transition: all 1s ease;
+				-moz-transition: all 1s ease;
+				-ms-transition: all 1s ease;
+				transition: all 1s ease; */
+				li {
+					background-color: $color-secundario;
+					text-align: left;
+					padding-left: 5%;
+					display: block;
+					width: 100%;
+					height: 50px;
+					a {
+						text-decoration: none;
+	  					color: $color-secundario;
+	  				}
+					&:hover {
+						background-color: $color-cuaternario;;
+						a {
+							text-decoration: none;
+		  					color: $color-secundario;	
+		  				}
+					}
+				}
+			}
+		}
+	}
+}
+#contenedor {
+	@include limpiar();
+	@include sombra-contenedor();
+	max-width: $ancho-maximo;
+	width: 100%;
+	height: 1500px;
+	background-color: $color-cuaternario;
+	margin: auto;
+	h1 {
+		@include limpiar();
+	}
+}
+// .carousel-inner > .item > img, .carousel-inner > .item > a > img {
+.carousel-inner {
+	position: relative;
+	z-index: 0;
+	.item {
+		img {
+			width: 100%;
+			height: auto;
+			margin: auto;
+		}
+	}
+}
+
+footer {
+	@include limpiar();
+	@include sombra-contenedor();
+	max-width: $ancho-maximo;
+	width: 100%;
+	height: 125px;
+	background-color: $color-primario;
+	margin: auto;	
+}
