@@ -56,6 +56,28 @@ $ancho-maximo: 1280px;
 	width: $diametro;
 }
 
+//Para la animacion de los sub menus del nav
+@mixin animation($animations) {
+	-webkit-animation: #{$animations};
+	-moz-animation: #{$animations};
+	-ms-animation: #{$animations};
+	animation: #{$animations};
+}
+@mixin keyframes($name) {
+	@-webkit-keyframes #{$name} {
+		@content; 
+	}
+	@-moz-keyframes #{$name} {
+		@content; 
+	}
+	@-ms-keyframes #{$name} {
+		@content; 
+	}
+	@keyframes #{$name} {
+		@content; 
+	}
+}
+
 * {
 	//Esto hace que si se se agragan bordes, no expandan 
 	//el elemento sino que se agraguen hacia adentro
@@ -161,12 +183,12 @@ nav {
 	color: $color-cuaternario;
 	font-size: 18px;
 	font-weight: bold;
-	ul {
+	.ul-n1 {
 		@include limpiar();
 		text-align: center;
 		position: relative;
 		/* Se colocan z-index en varios elementos para que 
-		se viera la animacion de opacidad de los sub menus*/
+		se vea la animacion de opacidad de los sub menus*/
 		z-index: 1;
 		li {
 			@include limpiar();
@@ -183,7 +205,8 @@ nav {
 				vertical-align: top;
 				color: $color-primario;
 			}
-			ul {
+			.ul-n2 {
+				@include limpiar();
 				display: none;
 				position: relative;
 				z-index: 2;
@@ -201,42 +224,28 @@ nav {
 					text-align: left;
 				}
 			}
-			-webkit-transition: all 0.3s;
-			-moz-transition: all 0.3s;
-			-ms-transition: all 0.3s;
-			transition: all 0.3s;
+			-webkit-transition: background-color 0.3s;
+			-moz-transition: background-color 0.3s;
+			-ms-transition: background-color 0.3s;
+			transition: background-color 0.3s;
 			&:hover {
 				background-color: $color-cuaternario;
-				-webkit-animation: opacidad 0.5s;
-				-moz-animation: opacidad 0.5s;
-				-ms-animation: opacidad 0.5s;
-				animation: opacidad 0.5s;
 				a {
 					text-decoration: none;
 					color: $color-primario;
 				}
-				ul {
+				.ul-n2 {
 					display: block;
-					@-webkit-keyframes opacidad {
-						0% {opacity: 0;}
-						100% {opacity: 1;}
-					}
-					@-moz-keyframes opacidad {
-						0% {opacity: 0;}
-						100% {opacity: 1;}
-					}
-					@-ms-keyframes opacidad {
-						0% {opacity: 0;}
-						100% {opacity: 1;}
-					}
-					@keyframes opacidad {
-						0% {opacity: 0;}
-						100% {opacity: 1;}
+					@include animation("submenu 0.5s");
+					@include keyframes("submenu") {
+						0% {opacity: 0}
+						100% {opacity: 1} 
 					}
 					li {
 						a {
 							text-decoration: none;
 							color: $color-primario;
+							@include animation("submenu 0.5s");
 						}
 					}
 				}
@@ -276,10 +285,52 @@ nav {
 ///////////////////////////////////////////////////*/
 footer {
 	@include limpiar();
-	@include sombra-contenedor();
 	max-width: $ancho-maximo;
 	width: 100%;
-	height: 125px;
-	background-color: $color-primario;
+	height: 200px;
+	font-family: $font-secundario;
 	margin: auto;
+	#footer1 {
+		@include limpiar();
+		@include dimensiones(100%, 150px);
+		background-color: $color-secundario;
+		font-size: 14px;
+		font-weight: bold;
+		.f-ul-n1 {
+			.f-li-n1 {
+				display: inline-block;
+				vertical-align: top;
+				width: 12%;
+				a {
+					color: $color-primario;
+					&:hover {
+						color: $color-primario;
+					}
+				}
+			.f-ul-n2 {
+				@include limpiar();
+				.f-li-n2 {
+					margin-left: 15px;
+
+					a {
+
+					}
+				}
+			}
+			}
+		}
+	}
+	#copyright {
+		@include limpiar();
+		@include dimensiones(100%, 50px);
+		background-color: $color-primario;
+		color: $color-secundario;
+		font-weight: bold;
+		text-align: center;
+		h4 {
+			@include limpiar();
+			padding-top: 15px;
+			
+		}
+	}
 }
