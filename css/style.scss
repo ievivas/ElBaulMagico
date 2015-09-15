@@ -163,94 +163,91 @@ nav {
 	font-weight: bold;
 	ul {
 		@include limpiar();
-		background-color: $color-secundario;
 		text-align: center;
-		display: inline;
-		list-style: none;
-		.boton {
-			margin-left: -5px;
-		}
+		position: relative;
+		/* Se colocan z-index en varios elementos para que 
+		se viera la animacion de opacidad de los sub menus*/
+		z-index: 1;
 		li {
 			@include limpiar();
-			padding-top: 12px;
 			display: inline-block;
-			position: relative;
-			/* cursor: pointer; */
-			width: 16%;
-			height: 100%;
 			vertical-align: top;
-			//Esta transicion afecta el menu horizontal
-			-webkit-transition: all 1s;
-			-moz-transition: all 1s;
-			-ms-transition: all 1s;
-			transition: all 1s;
+			@include dimensiones(16%, 100%);
+			text-align: center;
+			padding-top: 15px;
+			margin-left: -5px;
 			a {
-				text-decoration: none;
-				color: $color-cuaternario;
-				margin-right: 10px;
-				vertical-align: top;
+				color: $color-primario;
 			}
 			i {
 				vertical-align: top;
-				transition: transform 0.3s;
+				color: $color-primario;
 			}
+			ul {
+				display: none;
+				position: relative;
+				z-index: 2;
+				background-color: $color-terciario;
+				color: $color-secundario;
+				@include sombra(5px, 5px, 20px, 0px, black);
+				margin-top: 10px;
+				border-radius: 5px;
+				li {
+					@include limpiar();
+					display: block;
+					@include dimensiones(100%, 50px);
+					padding-top: 15px;
+					padding-left: 30px;
+					text-align: left;
+				}
+			}
+			-webkit-transition: all 0.3s;
+			-moz-transition: all 0.3s;
+			-ms-transition: all 0.3s;
+			transition: all 0.3s;
 			&:hover {
 				background-color: $color-cuaternario;
-  				a, i {
-  					color: $color-secundario;
-  					text-decoration: none;
-  				} 
-  				i {
-  					transform: rotate(90deg);
-  				}
-  				ul {
-					visibility: visible;
+				-webkit-animation: opacidad 0.5s;
+				-moz-animation: opacidad 0.5s;
+				-ms-animation: opacidad 0.5s;
+				animation: opacidad 0.5s;
+				a {
+					text-decoration: none;
+					color: $color-primario;
+				}
+				ul {
 					display: block;
-					top: 50px;
+					@-webkit-keyframes opacidad {
+						0% {opacity: 0;}
+						100% {opacity: 1;}
+					}
+					@-moz-keyframes opacidad {
+						0% {opacity: 0;}
+						100% {opacity: 1;}
+					}
+					@-ms-keyframes opacidad {
+						0% {opacity: 0;}
+						100% {opacity: 1;}
+					}
+					@keyframes opacidad {
+						0% {opacity: 0;}
+						100% {opacity: 1;}
+					}
 					li {
 						a {
 							text-decoration: none;
-							color: $color-cuaternario;
+							color: $color-primario;
 						}
-					}
-				}
-			}
-			ul {
-				@include limpiar();
-				position: absolute;
-				width: 100%;
-				@include sombra(5px, 5px, 20px, 0px, black);
-				display: none;
-				visibility: hidden;
-				z-index: 1;
-				transition-property: all;
-    			transition-duration: 2s;
-				li {
-					background-color: $color-secundario;
-					text-align: left;
-					padding-left: 5%;
-					display: block;
-					width: 100%;
-					height: 50px;
-					a {
-						text-decoration: none;
-	  					color: $color-secundario;
-	  				}
-					&:hover {
-						background-color: $color-cuaternario;;
-						a {
-							text-decoration: none;
-		  					color: $color-secundario;	
-		  				}
 					}
 				}
 			}
 		}
 	}
 }
+	
 #contenedor {
 	position: relative;
-	top: 500px;
+	z-index: 0;
 	@include limpiar();
 	@include sombra-contenedor();
 	max-width: $ancho-maximo;
@@ -266,8 +263,6 @@ nav {
 // SLIDER CAROUSEL
 ///////////////////////////////////////////////////*/
 .carousel-inner {
-	position: relative;
-	z-index: 0;
 	.item {
 		img {
 			width: 100%;
