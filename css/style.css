@@ -20,8 +20,96 @@ header {
   height: 125px;
   background-color: #61094d;
   margin: auto;
+  position: relative;
+  /* /////////////////////////////////////////////////
+	// BOTONERA REDES SOCIALES
+	///////////////////////////////////////////////////*/
 }
 
+header #botones-social {
+  display: inline-block;
+  position: absolute;
+  right: 10%;
+  top: 30px;
+}
+
+header #botones-social .circulo {
+  margin: 0px;
+  padding: 0px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  background-color: none;
+  height: 50px;
+  width: 50px;
+  border: 2px solid #ede3eb;
+  text-align: center;
+  display: inline-block;
+  margin: 5px;
+}
+
+header #botones-social .circulo a {
+  text-decoration: none;
+  color: #ede3eb;
+}
+
+header #botones-social .circulo a span {
+  font-size: 25px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding-top: 10px;
+}
+
+header #botones-social .facebook {
+  -webkit-transition: transform 0.5s, background-color 0.5s;
+  -moz-transition: transform 0.5s, background-color 0.5s;
+  -ms-transition: transform 0.5s, background-color 0.5s;
+  transition: transform 0.5s, background-color 0.5s;
+}
+
+header #botones-social .facebook:hover {
+  background-color: #3b5998;
+  -webkit-transform: scale(1.3, 1.3) rotate(360deg);
+  -moz-transform: scale(1.3, 1.3) rotate(360deg);
+  -ms-transform: scale(1.3, 1.3) rotate(360deg);
+  transform: scale(1.3, 1.3) rotate(360deg);
+}
+
+header #botones-social .twitter {
+  -webkit-transition: transform 0.5s, background-color 0.5s;
+  -moz-transition: transform 0.5s, background-color 0.5s;
+  -ms-transition: transform 0.5s, background-color 0.5s;
+  transition: transform 0.5s, background-color 0.5s;
+}
+
+header #botones-social .twitter:hover {
+  background-color: #4099ff;
+  -webkit-transform: scale(1.3, 1.3) rotate(360deg);
+  -moz-transform: scale(1.3, 1.3) rotate(360deg);
+  -ms-transform: scale(1.3, 1.3) rotate(360deg);
+  transform: scale(1.3, 1.3) rotate(360deg);
+}
+
+header #botones-social .instagram {
+  -webkit-transition: transform 0.5s, background-color 0.5s;
+  -moz-transition: transform 0.5s, background-color 0.5s;
+  -ms-transition: transform 0.5s, background-color 0.5s;
+  transition: transform 0.5s, background-color 0.5s;
+}
+
+header #botones-social .instagram:hover {
+  background-color: #9b6954;
+  -webkit-transform: scale(1.3, 1.3) rotate(360deg);
+  -moz-transform: scale(1.3, 1.3) rotate(360deg);
+  -ms-transform: scale(1.3, 1.3) rotate(360deg);
+  transform: scale(1.3, 1.3) rotate(360deg);
+}
+
+/* /////////////////////////////////////////////////
+// MENU
+///////////////////////////////////////////////////*/
 nav {
   margin: 0px;
   padding: 0px;
@@ -63,10 +151,10 @@ nav ul li {
   width: 16%;
   height: 100%;
   vertical-align: top;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  transition: all 0.3s;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  transition: all 1s;
 }
 
 nav ul li a {
@@ -119,10 +207,6 @@ nav ul li ul {
   z-index: 1;
   transition-property: all;
   transition-duration: 2s;
-  /* -webkit-transition: all 1s ease;
-				-moz-transition: all 1s ease;
-				-ms-transition: all 1s ease;
-				transition: all 1s ease; */
 }
 
 nav ul li ul li {
@@ -149,6 +233,8 @@ nav ul li ul li:hover a {
 }
 
 #contenedor {
+  position: relative;
+  top: 500px;
   margin: 0px;
   padding: 0px;
   -webkit-box-shadow: 10px 0px 15px -8px #191919, -10px 0px 15px -8px #191919;
@@ -178,6 +264,9 @@ nav ul li ul li:hover a {
   margin: auto;
 }
 
+/* /////////////////////////////////////////////////
+// FOOTER
+///////////////////////////////////////////////////*/
 footer {
   margin: 0px;
   padding: 0px;
