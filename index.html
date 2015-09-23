@@ -14,11 +14,9 @@
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 		<link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
 		<!-- Fuentes -->
-		<link rel="stylesheet" type="text/css" href="https://www.google.com/fonts#UsePlace:use/Collection:Fjalla+One|Montserrat|Pacifico" />
-		<!-- slider carousel: link y 2 scripts -->
+		<link href='https://fonts.googleapis.com/css?family=Fjalla+One|Montserrat|Pacifico' rel='stylesheet' type='text/css' />
+		<!-- Bootstrap -->
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
-  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 		<!-- Hoja de estilos -->
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 	</head>
@@ -43,6 +41,12 @@
 						</a>
 					</div>
 			</div>
+			<div id="contenedor-buscar">
+				<form>
+					<input type="search" placeholder="Buscar ...">
+					<input type="image" src="assets/search.png">
+				</form>
+			</div>
 		</header>
 		<nav>
 			<ul class="ul-n1">
@@ -51,12 +55,16 @@
 				<li>
 					<a href="">Productos</a>
 					<i class="material-icons" />keyboard_arrow_down</i>
+					<!-- Pequeño triangulo sobre el sub menu -->
+					<div class="flecha-cont">
+						<div class="flecha-arriba"></div>
+					</div>
 					<ul class="ul-n2">
-						<li><a href="">Aros</a></li>
+						<li class="primer-item"><a href="">Aros</a></li>
 						<li><a href="">Collares</a></li>
 						<li><a href="">Pulseras</a></li>
 						<li><a href="">Anillos</a></li>
-						<li><a href="">Novedades</a></li>
+						<li class="ultimo-item"><a href="">Novedades</a></li>
 					</ul>
 				</li>
 				<li><a href="">Eventos</a></li>
@@ -64,10 +72,14 @@
 				<li>
 					<a href="">Contacto</a> 
 					<i class="material-icons" />keyboard_arrow_down</i>
+					<!-- Pequeño triangulo sobre el sub menu -->
+					<div class="flecha-cont">
+						<div class="flecha-arriba"></div>
+					</div>
 					<ul class="ul-n2">
-						<li><a href="">Redes Sociales</a></li>
+						<li class="primer-item"><a href="">Redes Sociales</a></li>
 						<li><a href="">Ubicación</a></li>
-						<li><a href="">Dejar mensaje</a></li>
+						<li class="ultimo-item"><a href="">Dejar mensaje</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -81,25 +93,25 @@
 						<li data-target="#myCarousel" data-slide-to="1"></li>
 						<li data-target="#myCarousel" data-slide-to="2"></li>
 						<li data-target="#myCarousel" data-slide-to="3"></li>
-						<li data-target="#myCarousel" data-slide-to="3"></li>
 				    </ol>
 
 				    <!-- Wrapper for slides -->
 				    <div class="carousel-inner" role="listbox">
 						<div class="item active">
-							<img src="assets/images/image01.jpg" alt="Pendientes">
+							<a class="slider-titular" href="">Orfebrería</a>
+							<img src="assets/images/image01.jpg" alt="Orfebreria">
 						</div>
 						<div class="item">
-							<img src="assets/images/image02.jpg" alt="Anillo">
+							<a class="slider-titular" href="">Collares</a>
+							<img src="assets/images/image02.jpg" alt="Collares">
 						</div>
 						<div class="item">
-								<img src="assets/images/image03.jpg" alt="Orfebrería">
+								<a class="slider-titular" href="">Pulseras</a>
+								<img src="assets/images/image03.jpg" alt="Pulseras">
 						</div>
 						<div class="item">
-								<img src="assets/images/image04.jpg" alt="Flower">
-						</div>
-						<div class="item">
-								<img src="assets/images/image05.jpg" alt="Flower">
+								<a class="slider-titular" href="">Anillos</a>
+								<img src="assets/images/image04.jpg" alt="Anillos">
 						</div>
 				    </div>
 
@@ -114,7 +126,7 @@
 				    </a>
 				</div>
 			</section>
-			<section>
+			<section id="prueba">
 				<article>
 					<h2>Sobre Nosotros</h2>
 					<p>El Baúl Mágico Son piezas o accesorios diseñados con inspiración en tu día a día que te darán estilo y marcarán la diferencia, escoge tus colores en cueros y cordones dependiendo de tu estado de ánimo y en la infinidad de colores y tipos de piedras semi-preciosas al igual de distintas y únicas formas de dijes y piezas en tus collares, pulseras, anillos, aretes y algo más...
@@ -122,9 +134,13 @@
 							<li>Formulario para enviar mensaje. Hacer tutorial en w3</li>
 							<li>Widgets redes sociales</li>
 							<li>Reseña de Mary</li>
+							<li>Iconos de productos</li>
 							<li>Pagina de productos con fecha de actializacion</li>
+							<li>Breadcrums</li>
+							<li>Jumbotrum, para entrar al sitio</li>
 						</ul>
 					</p>
+					
 				</article>
 				<article>
 					<a class="twitter-timeline" href="https://twitter.com/ievivas" data-widget-id="643215268873957377">Tweets por @ievivas.</a>
@@ -164,9 +180,16 @@
 			</div>
 			<div id="copyright">
 				<h4>
-					Copyright &copy; EL Baúl Mágico - 2015
+					Copyright &copy; El Baúl Mágico - 2015
 				</h4>
 			</div>
 		</footer>
+
+		<!-- SCRIPTS -->
+		<!-- Los siguientes 2 scripts son para el carousel -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+		</script>
+  		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js">
+  		</script>
 	</body>
 </html>

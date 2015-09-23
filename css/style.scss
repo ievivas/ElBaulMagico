@@ -4,8 +4,8 @@ $color-secundario: rgb(159, 106, 147);
 $color-terciario: rgb(195, 163, 189);
 $color-cuaternario: rgb(237, 227, 235);
 
-$font-principal: 'Pacific', serif;
-$font-secundario: 'Fjalla+One', sans-serif;
+$font-principal: 'Pacifico', cursive;
+$font-secundario: 'Fjalla One', sans-serif;
 $font-terciario: 'Montserrat', sans-serif;
 
 $color-facebook: rgb(59,89,152);
@@ -167,7 +167,71 @@ header {
 			}
 		}
 	}
+	/* /////////////////////////////////////////////////
+	// BUSQUEDA
+	///////////////////////////////////////////////////*/
+	#contenedor-buscar {
+		position: absolute;
+		display: inline-block;
+		right: 1%;
+		top: 45px;
+		form {
+			::-webkit-input-placeholder {
+			   color: $color-cuaternario;
+			}
+			::-moz-input-placeholder {
+			   color: $color-cuaternario;
+			}
+			:-ms-input-placeholder {
+			   color: $color-cuaternario;
+			}
+			input[type="search"] {
+				height: 30px;
+				width: 65px;
+				border: 2px solid $color-cuaternario;
+				border-right: none;
+				color: $color-cuaternario;
+				-webkit-border-radius: 15px 0px 0px 15px;
+				-moz-border-radius: 15px 0px 0px 15px;
+				-ms-border-radius: 15px 0px 0px 15px;
+				border-radius: 15px 0px 0px 15px;
+				font-size: 14px;
+				padding-left: 10px;
+				font-family: $font-terciario;
+				background-color: $color-primario;
+				-webkit-transition: all .5s;
+				-moz-transition: all .5s;
+				-ms-transition: all .5s;
+				transition: all .5s;
+				&:focus {
+					width: 130px;
+					background-color: $color-secundario;
+					outline: none;
+					~ input[type="image"] {
+						background-color: $color-secundario;
+					}
+				}
+			}
+			input[type="image"] {
+				height: 30px;
+				background-color: $color-primario;
+				-webkit-border-radius: 0px 15px 15px 0px;
+				-moz-border-radius: 0px 15px 15px 0px;
+				-ms-border-radius: 0px 15px 15px 0px;
+				border-radius: 0px 15px 15px 0px;
+				margin-left: -4px;
+				vertical-align: top;
+				border: 2px solid $color-cuaternario;
+				border-left: none;
+				-webkit-transition: background-color .5s;
+				-moz-transition: background-color .5s;
+				-ms-transition: background-color .5s;
+				transition: background-color .5s;
+			}
+		}
+	}
 }
+		
 /* /////////////////////////////////////////////////
 // MENU
 ///////////////////////////////////////////////////*/
@@ -198,12 +262,29 @@ nav {
 			text-align: center;
 			padding-top: 15px;
 			margin-left: -5px;
+			position: relative;
 			a {
 				color: $color-primario;
 			}
 			i {
 				vertical-align: top;
 				color: $color-primario;
+			}
+			.flecha-cont {
+				width: 100%;
+				height: 20px;
+				.flecha-arriba {
+					width: 0; 
+					height: 0; 
+					border-left: 10px solid transparent;
+					border-right: 10px solid transparent;
+					border-bottom: 10px solid $color-terciario;
+					display: none;
+					z-index: 3;
+					position: absolute;
+					top: 50px;
+					left: 90px;
+				}
 			}
 			.ul-n2 {
 				@include limpiar();
@@ -213,8 +294,10 @@ nav {
 				background-color: $color-terciario;
 				color: $color-secundario;
 				@include sombra(5px, 5px, 20px, 0px, black);
-				margin-top: 10px;
-				border-radius: 5px;
+				-webkit-border-radius: 10px;
+				-moz-border-radius: 10px;
+				-ms-border-radius: 10px;
+				border-radius: 10px;
 				li {
 					@include limpiar();
 					display: block;
@@ -234,18 +317,31 @@ nav {
 					text-decoration: none;
 					color: $color-primario;
 				}
-				.ul-n2 {
+				.ul-n2, .flecha-cont, .flecha-arriba {
 					display: block;
-					@include animation("submenu 0.5s");
+					@include animation("submenu 0.3s");
 					@include keyframes("submenu") {
 						0% {opacity: 0}
 						100% {opacity: 1} 
+					}
+					/* Para darle bordes redondeados en el hover */
+					.primer-item {
+						-webkit-border-radius: 10px 10px 0px 0px;
+						-moz-border-radius: 10px 10px 0px 0px;
+						-ms-border-radius: 10px 10px 0px 0px;
+						border-radius: 10px 10px 0px 0px;
+					}
+					.ultimo-item {
+						-webkit-border-radius: 0px 0px 10px 10px;
+						-moz-border-radius: 0px 0px 10px 10px;	
+						-ms-border-radius: 0px 0px 10px 10px;	
+						border-radius: 0px 0px 10px 10px;	
 					}
 					li {
 						a {
 							text-decoration: none;
 							color: $color-primario;
-							@include animation("submenu 0.5s");
+							@include animation("submenu 0.3s");
 						}
 					}
 				}
@@ -272,7 +368,21 @@ nav {
 // SLIDER CAROUSEL
 ///////////////////////////////////////////////////*/
 .carousel-inner {
+	position: relative;
 	.item {
+		.slider-titular {
+			position: absolute;
+			display: inline-block;
+			font-family: $font-principal;
+			font-size: 72px;
+			color: #fff;
+			text-shadow: 2px 2px 8px #191919;
+			top: 30px;
+			left: 200px;
+			&:hover {
+				text-decoration: none;
+			}
+		}
 		img {
 			width: 100%;
 			height: auto;
@@ -280,6 +390,14 @@ nav {
 		}
 	}
 }
+/* /////////////////////////////////////////////////
+// SECTION
+///////////////////////////////////////////////////*/
+#prueba {
+
+}
+
+
 /* /////////////////////////////////////////////////
 // FOOTER
 ///////////////////////////////////////////////////*/
