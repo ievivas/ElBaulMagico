@@ -2,10 +2,11 @@
 $color-primario: rgb(97, 9, 77);
 $color-secundario: rgb(159, 106, 147);
 $color-terciario: rgb(195, 163, 189);
-$color-cuaternario: rgb(237, 227, 235);
+$color-cuaternario: rgb(247, 241, 245);
+$color-casinegro: #1e1e1e;
 
 $font-principal: 'Pacifico', cursive;
-$font-secundario: 'Fjalla One', sans-serif;
+$font-secundario: 'Roboto', sans-serif;
 $font-terciario: 'Montserrat', sans-serif;
 
 $color-facebook: rgb(59,89,152);
@@ -54,6 +55,14 @@ $ancho-maximo: 1280px;
 	background-color: $color;
 	height: $diametro;
 	width: $diametro;
+}
+
+//Para transiciones
+@mixin transition($propiedad, $tiempo, $funcion){
+	-webkit-transition: $propiedad $tiempo $funcion;
+	-moz-transition: $propiedad $tiempo $funcion;
+	-ms-transition: $propiedad $tiempo $funcion;
+	transition: $propiedad $tiempo $funcion;
 }
 
 //Para la animacion de los sub menus del nav
@@ -167,6 +176,7 @@ header {
 			}
 		}
 	}
+
 	/* /////////////////////////////////////////////////
 	// BUSQUEDA
 	///////////////////////////////////////////////////*/
@@ -240,7 +250,7 @@ nav {
 	@include sombra-contenedor();
 	max-width: $ancho-maximo;
 	width: 100%;
-	height: 50px;
+	height: 35px;
 	background-color: $color-secundario;
 	margin: auto;
 	font-family: $font-secundario;
@@ -260,7 +270,7 @@ nav {
 			vertical-align: top;
 			@include dimensiones(16%, 100%);
 			text-align: center;
-			padding-top: 15px;
+			padding-top: 5px;
 			margin-left: -5px;
 			position: relative;
 			a {
@@ -270,9 +280,24 @@ nav {
 				vertical-align: top;
 				color: $color-primario;
 			}
+			// Otra forma de agregar la flechita es con la
+			// pseudo clase after, sin necesidad de agregar un
+			// div al html, de la siguiente forma: 
+			/* .menu-small ul:after {
+		        width:0px;
+		        height:0px;
+		        position:absolute;
+		        top:0%;
+		        left:22px;
+		        content:'';
+		        transform:translate(0%, -100%);
+		        border-left:7px solid transparent;
+		        border-right:7px solid transparent;
+		        border-bottom:7px solid #303030;
+		    } */
 			.flecha-cont {
 				width: 100%;
-				height: 20px;
+				height: 15px;
 				.flecha-arriba {
 					width: 0; 
 					height: 0; 
@@ -282,7 +307,7 @@ nav {
 					display: none;
 					z-index: 3;
 					position: absolute;
-					top: 50px;
+					top: 35px;
 					left: 90px;
 				}
 			}
@@ -294,15 +319,11 @@ nav {
 				background-color: $color-terciario;
 				color: $color-secundario;
 				@include sombra(5px, 5px, 20px, 0px, black);
-				-webkit-border-radius: 10px;
-				-moz-border-radius: 10px;
-				-ms-border-radius: 10px;
-				border-radius: 10px;
 				li {
 					@include limpiar();
 					display: block;
-					@include dimensiones(100%, 50px);
-					padding-top: 15px;
+					@include dimensiones(100%, 35px);
+					padding-top: 5px;
 					padding-left: 30px;
 					text-align: left;
 				}
@@ -352,7 +373,6 @@ nav {
 	
 #contenedor {
 	position: relative;
-	z-index: 0;
 	@include limpiar();
 	@include sombra-contenedor();
 	max-width: $ancho-maximo;
@@ -365,37 +385,88 @@ nav {
 	}
 }
 //* /////////////////////////////////////////////////
-// SLIDER CAROUSEL
+// Slick Carrusel
 ///////////////////////////////////////////////////*/
-.carousel-inner {
-	position: relative;
-	.item {
-		.slider-titular {
-			position: absolute;
-			display: inline-block;
-			font-family: $font-principal;
-			font-size: 72px;
-			color: #fff;
-			text-shadow: 2px 2px 8px #191919;
-			top: 30px;
-			left: 200px;
-			&:hover {
-				text-decoration: none;
-			}
+.fade {
+	height: 500px;
+	opacity: 1;
+	img {
+		width: 100%;
+	}
+}
+
+// SCROLL PARA NIVEL 2
+.scroll {
+	font-family: $font-secundario;
+	position: absolute;
+	top: 400px;
+	left: 50%;
+	a {
+		color: $color-cuaternario;
+		display: block;
+		font-size: 18px;
+		font-weight: bold;
+		text-shadow: 0 0 9px black;
+		&:hover, &:link {
+			text-decoration: none;
 		}
-		img {
-			width: 100%;
-			height: auto;
-			margin: auto;
+		i {
+			font-size: 70px;
+		}
+	}
+	#icon-scroll {
+		margin-top: -20px;
+		@include animation("move-icon 3s infinite");
+		//Animacion keyframes por coderhouse
+		@include keyframes("move-icon") {
+				0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+				40% {transform: translateY(15px);} 
+				60%{transform: translateY(15px);}
+			}
+	}
+}	
+
+/* /////////////////////////////////////////////////
+// NIVEL 2
+///////////////////////////////////////////////////*/
+.nivel-2 {
+	@include limpiar();
+	width: 100%;
+	height: 600px;
+	background-color: $color-cuaternario;
+}
+
+
+/* /////////////////////////////////////////////////
+// NIVEL 3 - Parallax
+///////////////////////////////////////////////////*/
+section {
+
+	.container {
+		width: 100%;
+		max-width: 960px;
+		margin: 0 auto;
+		padding: 0 20px;
+		h1 {
+			color: $color-casinegro;
+			font-size: 100px;
+			line-height: 1;
+			font-weight: 700;
+			text-align: center;
+			text-transform: uppercase;
+			text-shadow: 0 0 10px white;
 		}
 	}
 }
-/* /////////////////////////////////////////////////
-// SECTION
-///////////////////////////////////////////////////*/
-#prueba {
-
+.parallax-1 {
+	 /*Imagen de https://unsplash.com*/
+	  background-image: url("../assets/images/fondo-nivel2.jpg");
+	  width: 100%;
+	  padding: 240px 0;
+	  // Para cambiar la posicion Y de la imagen, cambiar aqui y en el parallax.js
+	  background-position: 0px 400px;
 }
+
 
 
 /* /////////////////////////////////////////////////

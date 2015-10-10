@@ -1,27 +1,37 @@
 <html lang="es">
 	<head>
-		<title>El Baúl Mágico</title>
+		<!-- SEO: Se recomienda agregar algunos tópicos al título -->
+		<title>El Baúl Mágico - Diseño, fabricación y venta de bisutería: Collares, aretes, pulseras, anillos y más</title>
 		<meta charset="utf-8" />
-		<meta type="description" content="El Baul Magico es un sitio donde puedes conseguir bisuteria (collares, zarcillos y pulseras) con diseños de Marynelly Rojas"/>
+		<meta type="description" content="El Baul Magico es un sitio donde puedes conseguir bisuteria: collares, aretes (aros, zarcillos), pulseras, anillos y más. Con diseños de Marynelly Rojas"/>
 		<!-- Para el despliegue en dispositivos moviles -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<!-- Normalizar: Renderiza igual en todos
-		los navegadores. -->
-		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css" />
+		los navegadores. Bootstrap tiene su propio normalizer-->
+		<!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css" /> -->
 		<!-- Favicon -->
 		<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 		<!-- Iconos -->
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 		<link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
 		<!-- Fuentes -->
-		<link href='https://fonts.googleapis.com/css?family=Fjalla+One|Montserrat|Pacifico' rel='stylesheet' type='text/css' />
+		<link href='https://fonts.googleapis.com/css?family=Roboto|Montserrat|Pacifico' rel='stylesheet' type='text/css' />
 		<!-- Bootstrap -->
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+		<!-- Slick: Carrusel de fotos -->
+		<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+		<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+
 		<!-- Hoja de estilos -->
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 	</head>
 
 	<body>
+		<!--
+        =============================
+        HEADER
+        =============================
+        -->
 		<header>
 			<img src="assets/logo.svg" />
 			<div id="botones-social">
@@ -48,6 +58,11 @@
 				</form>
 			</div>
 		</header>
+		<!--
+        =============================
+        NAV MENU
+        =============================
+        -->
 		<nav>
 			<ul class="ul-n1">
 				<li><a href="">Inicio</a></li>
@@ -84,48 +99,98 @@
 				</li>
 			</ul>
 		</nav>
+		<!--
+        =============================
+        CONTENEDOR PRINCIPAL
+        =============================
+        -->
 		<div id="contenedor">
-			<section>
-				<div id="myCarousel" class="carousel slide" data-ride="carousel">	
-				    <!-- Indicators -->
-				    <ol class="carousel-indicators">
-						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-						<li data-target="#myCarousel" data-slide-to="1"></li>
-						<li data-target="#myCarousel" data-slide-to="2"></li>
-						<li data-target="#myCarousel" data-slide-to="3"></li>
-				    </ol>
-
-				    <!-- Wrapper for slides -->
-				    <div class="carousel-inner" role="listbox">
-						<div class="item active">
-							<a class="slider-titular" href="">Orfebrería</a>
-							<img src="assets/images/image01.jpg" alt="Orfebreria">
+			<!--
+	        =============================
+	        Slick: Carrusel de fotos
+	        =============================
+	        -->
+			<div class="fade">
+				<div>
+					<div class="image">
+						<img src="assets/images/image01.jpg"/>
+					</div>
+				</div>
+				<div>
+					<div class="image">
+						<img src="assets/images/image02.jpg"/>
+					</div>
+				</div>
+				<div>
+					<div class="image">
+						<img src="assets/images/image03.jpg"/>
+					</div>
+				</div>
+				<div>
+					<div class="image">
+						<img src="assets/images/image04.jpg"/>
+					</div>
+				</div>
+			</div>
+			<!-- SCROLL PARA NIVEL 2 -->
+		 	<div class="scroll">
+		 		<a href="#nivel-2">VER MÁS</a>
+		 		<a id="icon-scroll" href="#nivel-2"><i class="material-icons">keyboard_arrow_down</i></a>
+		 	</div>   
+			<!--
+	        =============================
+	        NIVEL 2
+	        =============================
+	        -->
+			<div id="nivel-2" class="row">
+				<div class="col-sm-6 col-md-4">
+					<div class="thumbnail">
+						<img src="..." alt="...">
+						<div class="caption">
+							<h3>Novedades</h3>
+							<p>...</p>
+							<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
 						</div>
-						<div class="item">
-							<a class="slider-titular" href="">Collares</a>
-							<img src="assets/images/image02.jpg" alt="Collares">
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4">
+					<div class="thumbnail">
+						<img src="..." alt="...">
+						<div class="caption">
+							<h3>Productos</h3>
+							<p>...</p>
+							<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
 						</div>
-						<div class="item">
-								<a class="slider-titular" href="">Pulseras</a>
-								<img src="assets/images/image03.jpg" alt="Pulseras">
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4">
+					<div class="thumbnail">
+						<img src="..." alt="...">
+						<div class="caption">
+							<h3>Eventos</h3>
+							<p>...</p>
+							<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
 						</div>
-						<div class="item">
-								<a class="slider-titular" href="">Anillos</a>
-								<img src="assets/images/image04.jpg" alt="Anillos">
-						</div>
-				    </div>
-
-				    <!-- Left and right controls -->
-				    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-				      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-				      <span class="sr-only">Previous</span>
-				    </a>
-				    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-				      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-				      <span class="sr-only">Next</span>
-				    </a>
+					</div>
+				</div>
+			</div>
+			 
+			<!--
+	        =============================
+	        NIVEL 3
+	        =============================
+	        -->
+			<section class="module parallax parallax-1" id="nivel-3">
+				<div class="container">
+					<h1>Motion</h1>
 				</div>
 			</section>
+
+			<!--
+	        =============================
+	        NIVEL 4 - prueba
+	        =============================
+	        -->
 			<section id="prueba">
 				<article>
 					<h2>Sobre Nosotros</h2>
@@ -137,7 +202,8 @@
 							<li>Iconos de productos</li>
 							<li>Pagina de productos con fecha de actializacion</li>
 							<li>Breadcrums</li>
-							<li>Jumbotrum, para entrar al sitio</li>
+							<li>Dejar comentario (aplet de facebook)</li>
+							
 						</ul>
 					</p>
 					
@@ -151,6 +217,11 @@
 					
 			</section>
 		</div>
+		<!--
+        =============================
+        FOOTER
+        =============================
+        -->
 		<footer>
 			<div id="footer1">
 				<ul class="f-ul-n1">
@@ -185,11 +256,64 @@
 			</div>
 		</footer>
 
-		<!-- SCRIPTS -->
-		<!-- Los siguientes 2 scripts son para el carousel -->
+		<!--
+        =============================
+        SCRIPTS
+        =============================
+        -->
+        <!-- JQuery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
 		</script>
-  		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js">
+		<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js">
+		</script>
+
+        <!-- Bootstrap -->
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js">
   		</script>
+		
+		<!-- Para Slick: carrusel de fotos -->
+		<script type="text/javascript" src="slick/slick.min.js">
+		</script>
+		<script type="text/javascript">
+	$(document).ready(function(){
+  		$('.fade').slick({
+  			dots: false,
+  			arrows: false,
+  			infinite: true,
+  			speed: 2000,
+  			fade: true,
+  			cssEase: 'linear',
+  			autoplay: true,
+  			autoplaySpeed: 2000,
+  			useCSS: true,
+		});
+  	});
+</script>
+  		<!-- Para el parallax: fondo se mueve con scroll-->
+		<script src="js/parallax.js"></script>
+
+		<!-- Para scroll suave dentro de la misma pagina desde un anchor -->
+		<script>
+			$(function() {
+	  			$("a").on('click', function(event) {
+    			// Prevent default anchor click behavior
+    			event.preventDefault();
+
+    			// Store hash
+    			var hash = this.hash;
+
+			    // Using jQuery's animate() method to add smooth page scroll
+			    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+    			$('html, body').animate({
+      			scrollTop: $(hash).offset().top
+    			}, 1000, function(){
+   
+					// Add hash (#) to URL when done scrolling (default click behavior)
+					window.location.hash = hash;
+    				});
+  				});
+			});
+		</script>
+
 	</body>
 </html>
